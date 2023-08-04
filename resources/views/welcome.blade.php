@@ -37,6 +37,6 @@
         </style>
     </head>
     <body class="antialiased">
-        {{ $todayFood['name'] }}
+        {{$todayFood ? $todayFood['name'] : $defaultText}}
     </body>
 </html>
