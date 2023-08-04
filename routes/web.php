@@ -82,5 +82,6 @@ Route::get('/', function () {
         }
         $todayFood = $foods[$foodCache - 1];
     }
-    return view('welcome')->with(compact('todayFood'));
+    $webUrl = url()->current();
+    return view('welcome')->with(compact('todayFood', 'webUrl'));
 });

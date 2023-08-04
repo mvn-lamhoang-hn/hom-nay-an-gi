@@ -8,18 +8,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>{{$todayFood ? $todayFood['name'] : $defaultText}}</title>
-        <meta name="description" content="UCLA advances knowledge, addresses pressing societal needs and creates a university enriched by diverse perspectives where all individuals can flourish.">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-        <meta property="twitter:card" content="summary" />
-        {{-- <meta property="twitter:id" content="@ucla" /> --}}
-        <meta property="og:title" content={{$todayFood ? $todayFood['name'] : $defaultText}} />
-        <meta property="og:site_name" content={{$todayFood ? 'Hôm nay ăn ' . $todayFood['name'] : $defaultText}} />
+        <meta property="description" content={{$todayFood ? $todayFood['description'] : $defaultText}} />
+        <meta property="og:site_name" content={{$todayFood ? $todayFood['name'] : $defaultText}} />
+        <meta property="og:site" content={{$webUrl}} />
         <meta property="og:type" content="website" />
-        {{-- <meta property="og:url" content="https://www.ucla.edu" /> --}}
+        <meta property="og:title" content={{$todayFood ? $todayFood['name'] : $defaultText}} />
+        <meta property="og:url" content={{$webUrl}} />
         <meta property="og:description" content={{$todayFood ? $todayFood['description'] : $defaultText}} />
-        {{-- <meta property="og:image:secure_url" content="https://ucla.edu/img/ucla_gateway.jpg" /> --}}
-        {{-- <meta property="og:image:alt" content="A photo of the front of Royce Hall." /> --}}
+        <meta property="fb:page_id" content="123123123" />
+        <meta property="twitter:site:id" content="123123123" />
+        <meta property="twitter:card" content="summary" />
+        <meta property="twitter:site" content="@angi" />
+        <meta property="twitter:title" content={{$todayFood ? $todayFood['name'] : $defaultText}} />
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
