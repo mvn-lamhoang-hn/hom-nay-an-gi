@@ -1,0 +1,23 @@
+version: "3.1"
+services:
+  php:
+    build:
+      context: ./
+      dockerfile: php.Dockerfile
+    container_name: hom-nay-an-gi
+    volumes:
+      - ./:/var/www/html
+
+  webserver:
+    image: nginx:1.17.10
+    container_name: hom-nay-an-gi-webserver
+    links:
+      - php:fpm
+    environment:
+      - FPM_HOST=fpm
+      - FPM_PORT=9000
+    volumes:
+      - ./:/var/www/html
+      - ./docker/nginx_conf:/etc/nginx/conf.d/
+    ports:
+      - "9090:80"
