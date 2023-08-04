@@ -19,47 +19,47 @@ Route::get('/', function () {
     $foods = [
         [
             'name' => 'Bún bò',
-            'description' => '',
+            'description' => 'Bún bò',
         ],
         [
             'name' => 'Bún cá',
-            'description' => '',
+            'description' => 'Bún cá',
         ],
         [
             'name' => 'Bún chả/Bánh cuốn',
-            'description' => '',
+            'description' => 'Bún chả/Bánh cuốn',
         ],
         [
             'name' => 'Bún đậu',
-            'description' => '',
+            'description' => 'Bún đậu',
         ],
         [
             'name' => 'Bún ngan',
-            'description' => '',
+            'description' => 'Bún ngan',
         ],
         [
             'name' => 'Bún ốc',
-            'description' => '',
+            'description' => 'Bún ốc',
         ],
         [
             'name' => 'Bún riêu',
-            'description' => '',
+            'description' => 'Bún riêu',
         ],
         [
             'name' => 'Dê',
-            'description' => '',
+            'description' => 'Dê',
         ],
         [
             'name' => 'KFC',
-            'description' => '',
+            'description' => 'KFC',
         ],
         [
             'name' => 'Lươn',
-            'description' => '',
+            'description' => 'Lươn',
         ],
         [
             'name' => 'Phở/cơm rang',
-            'description' => '',
+            'description' => 'Phở/cơm rang',
         ],
     ];
     $now = now();

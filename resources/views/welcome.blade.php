@@ -14,6 +14,7 @@
         <meta property="twitter:card" content="summary" />
         {{-- <meta property="twitter:id" content="@ucla" /> --}}
         <meta property="og:title" content={{$todayFood ? $todayFood['name'] : $defaultText}} />
+        <meta property="og:site_name" content={{$todayFood ? 'Hôm nay ăn ' . $todayFood['name'] : $defaultText}} />
         <meta property="og:type" content="website" />
         {{-- <meta property="og:url" content="https://www.ucla.edu" /> --}}
         <meta property="og:description" content={{$todayFood ? $todayFood['description'] : $defaultText}} />
