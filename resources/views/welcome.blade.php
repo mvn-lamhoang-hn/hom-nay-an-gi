@@ -10,6 +10,7 @@
         <title>{{$todayFood ? $todayFood['name'] : $defaultText}}</title>
         <meta property="description" content={{$todayFood ? $todayFood['description'] : $defaultText}} />
         <meta property="og:site_name" content={{$todayFood ? $todayFood['name'] : $defaultText}} />
+        <meta property="og:title_link" content={{$todayFood ? $todayFood['name'] : $defaultText}} />
         <meta property="og:site" content={{$webUrl}} />
         <meta property="og:type" content="website" />
         <meta property="og:title" content={{$todayFood ? $todayFood['name'] : $defaultText}} />
