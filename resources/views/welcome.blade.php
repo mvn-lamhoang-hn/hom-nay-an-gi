@@ -17,11 +17,11 @@
         <meta property="og:title" content="{{$todayFood ? $todayFood['name'] : $defaultText}}" />
         <meta property="og:url" content="{{$webUrl}}" />
         <meta property="og:description" content="{{$todayFood ? $todayFood['description'] : $defaultText}}" />
-        <meta property="og:image" content= "{{$todayFood ? $todayFood['image_url'] : $defaultText}}" />
+        <meta property="og:image" content= "{{$todayFood ? $todayFood['image_url'] : ''}}" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@angi" />
         <meta name="twitter:title" content="{{$todayFood ? $todayFood['name'] : $defaultText}}" />
-        <meta name="twitter:image" content="{{$todayFood ? $todayFood['image_url'] : $defaultText}}">
+        <meta name="twitter:image" content="{{$todayFood ? $todayFood['image_url'] : ''}}">
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -38,6 +38,8 @@
         </style>
     </head>
     <body class="antialiased">
-        {{$todayFood ? $todayFood['name'] : $defaultText}}
+        <h1>{{$todayFood ? $todayFood['name'] : $defaultText}}</h1>
+        <h2>{{$todayFood ? $todayFood['description'] : $defaultText}}</h2>
+        <img src="{{$todayFood ? $todayFood['image_url'] : ''}}">
     </body>
 </html>
