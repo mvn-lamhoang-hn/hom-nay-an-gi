@@ -7,20 +7,20 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{{$todayFood ? $todayFood['name'] : $defaultText}}</title>
-        <meta property="description" content={{$todayFood ? $todayFood['description'] : $defaultText}} />
-        <meta property="og:site_name" content={{$todayFood ? $todayFood['name'] : $defaultText}} />
-        <meta property="og:title_link" content={{$todayFood ? $todayFood['name'] : $defaultText}} />
-        <meta property="og:site" content={{$webUrl}} />
+        <title>"{{$todayFood ? $todayFood['name'] : $defaultText}}"</title>
+        <meta property="description" content="{{$todayFood ? $todayFood['description'] : $defaultText}}" />
+        <meta property="og:site_name" content="{{$todayFood ? $todayFood['name'] : $defaultText}}" />
+        <meta property="og:title_link" content="{{$todayFood ? $todayFood['name'] : $defaultText}}" />
+        <meta property="og:site" content="{{$webUrl}}" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content={{$todayFood ? $todayFood['name'] : $defaultText}} />
-        <meta property="og:url" content={{$webUrl}} />
-        <meta property="og:description" content={{$todayFood ? $todayFood['description'] : $defaultText}} />
+        <meta property="og:title" content="{{$todayFood ? $todayFood['name'] : $defaultText}}" />
+        <meta property="og:url" content="{{$webUrl}}" />
+        <meta property="og:description" content="{{$todayFood ? $todayFood['description'] : $defaultText}}" />
         <meta property="fb:page_id" content="123123123" />
         <meta property="twitter:site:id" content="123123123" />
         <meta property="twitter:card" content="summary" />
         <meta property="twitter:site" content="@angi" />
-        <meta property="twitter:title" content={{$todayFood ? $todayFood['name'] : $defaultText}} />
+        <meta property="twitter:title" content="{{$todayFood ? $todayFood['name'] : $defaultText}}" />
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
