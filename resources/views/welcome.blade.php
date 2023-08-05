@@ -18,6 +18,7 @@
         <meta property="og:url" content="{{$webUrl}}" />
         <meta property="og:description" content="{{$todayFood ? $todayFood['description'] : $defaultText}}" />
         <meta property="fb:page_id" content="123123123" />
+        <meta property="og:image" content= "{{$todayFood ? $todayFood['image_url'] : $defaultText}}" />
         <meta property="twitter:site:id" content="123123123" />
         <meta property="twitter:card" content="summary" />
         <meta property="twitter:site" content="@angi" />
