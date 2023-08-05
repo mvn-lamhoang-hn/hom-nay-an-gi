@@ -7,9 +7,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>"{{$todayFood ? $todayFood['name'] : $defaultText}}"</title>
+        <title>{{$todayFood ? $todayFood['name'] : $defaultText}}</title>
         <meta property="description" content="{{$todayFood ? $todayFood['description'] : $defaultText}}" />
         <meta property="og:site_name" content="{{$todayFood ? $todayFood['name'] : $defaultText}}" />
+        <meta property="og:service_name" content="{{$todayFood ? $todayFood['name'] : $defaultText}}" />
         <meta property="og:title_link" content="{{$todayFood ? $todayFood['name'] : $defaultText}}" />
         <meta property="og:site" content="{{$webUrl}}" />
         <meta property="og:type" content="website" />
