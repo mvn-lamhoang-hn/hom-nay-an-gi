@@ -69,7 +69,7 @@ Route::get('/', function () {
         ],
     ];
     $now = now();
-    $triggerTime = Carbon::create($now->year, $now->month, $now->day, 11, 0, 0);
+    $triggerTime = Carbon::create($now->year, $now->month, $now->day, 11, 29, 0);
     if ($now->lt($triggerTime)) {
         $todayFood = null;
     } else {
