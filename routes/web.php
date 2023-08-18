@@ -104,19 +104,6 @@ Route::get('/', function () {
     return view('welcome')->with(compact('todayFood', 'webUrl'));
 });
 
-Route::get('/json', function () {
-    return response()->json([
-        'from_url' => 'https://hom-nay-an-gi-production.up.railway.app/',
-        'title' => 'Chưa đến giờ ăn bạn êi',
-        'title_link' => 'https://hom-nay-an-gi-production.up.railway.app/',
-        'text' => 'Chưa đến giờ ăn bạn êi',
-        'fallback' => 'Chưa đến giờ ăn bạn êi',
-        'service_name' => 'Chưa đến giờ ăn bạn êi',
-        'id' => 1,
-        'original_url' => 'https://hom-nay-an-gi-production.up.railway.app/'
-    ]);
-});
-
 Route::get('/list', function () {
     return response()->json(array_column(FOODS, 'name'));
 });
