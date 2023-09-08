@@ -2,6 +2,7 @@
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -85,9 +86,9 @@ const FOODS = [
 
 Route::get('/', function () {
     $foods = FOODS;
-    $now = now()->addDays(0);
+    $now = now();
     $triggerTime = Carbon::create($now->year, $now->month, $now->day, 10, 29, 0);
-    if ($now->lt($triggerTime)) {
+    if ($now->lt($triggerTime) || $now->dayOfWeek == Carbon::SATURDAY || $now->dayOfWeek == Carbon::SUNDAY) {
         $todayFood = null;
     } else {
         $foodCache = Cache::get($now->toDateString());
@@ -103,17 +104,24 @@ Route::get('/', function () {
                     $foodCache = rand(1, count($foods));
                 }
             }
-            Cache::forget($now->copy()->subDays(5)->toDateString());
             Cache::put($now->toDateString(), $foodCache);
             $foodCache = Cache::get($now->toDateString());
         }
         $todayFood = $foods[$foodCache - 1];
         \Log::info($todayFood['name']);
     }
+    Cache::forget($now->copy()->subDays(6)->toDateString());
+    Cache::forget($now->copy()->subDays(7)->toDateString());
+    Cache::forget($now->copy()->subDays(8)->toDateString());
     $webUrl = url()->current();
     return view('welcome')->with(compact('todayFood', 'webUrl'));
-});
+})->name('index');
 
 Route::get('/list', function () {
     return response()->json(array_column(FOODS, 'name'));
+});
+
+Route::get('/reroll/0000', function () {
+    Cache::forget(now()->toDateString());
+    return Redirect::route('index');
 });
