@@ -48,11 +48,6 @@ const FOODS = [
         'image_url' => 'https://cdn.tgdd.vn/2021/06/CookProduct/Cacmontuluon-1200x676.jpg',
     ],
     [
-        'name' => 'Bún ốc không ốc',
-        'description' => 'Bún ốc là một đặc sản ẩm thực của người Hà Nội. Bún ốc có thể ăn nóng, chấm hoặc chan. Bún ốc nguội ăn chấm phù hợp vào mùa hè.',
-        'image_url' => 'https://www.cet.edu.vn/wp-content/uploads/2018/04/bun-oc-ha-noi.jpg',
-    ],
-    [
         'name' => 'Phở/cơm rang',
         'description' => "Phở là một món ăn truyền thống của Việt Nam và được xem là một trong những món ăn tiêu biểu cho nền ẩm thực Việt Nam.\nCơm chiên hay cơm rang là một món cơm nấu đã được chế biến trong chảo hoặc chảo rán và thường được trộn với các thành phần khác như trứng, rau, hải sản hoặc thịt. Nó thường được ăn riêng lẻ hoặc như một món ăn kèm cho món ăn khác.",
         'image_url' => 'https://images.foody.vn/res/g63/629865/prof/s576x330/foody-mobile-pb-cr-jpg-432-636207897250143993.jpg',
