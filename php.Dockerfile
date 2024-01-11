@@ -1,19 +1,18 @@
-FROM php:7.3-fpm-alpine
-# install required extension
-RUN apk add libxml2-dev
+FROM php:8.1-fpm
 
-# install mysql pdo driver
-RUN docker-php-ext-install pdo_mysql \
-    bcmath \
-    ctype \
-    fileinfo \
-    json \
-    mbstring \
-    tokenizer \
-    xml
+RUN apt-get update -y
+RUN apt-get install -y
+RUN apt-get install -y \
+    libzip-dev unzip libonig-dev libpng-dev \
+    libwebp-dev libjpeg62-turbo-dev libxpm-dev \
+    libfreetype6-dev
+RUN docker-php-ext-install pdo pdo_mysql zip mbstring
 
-# composer
-ENV COMPOSER_ALLOW_SUPERUSER 1
-ENV COMPOSER_HOME /composer
-RUN curl -sS https://getcomposer.org/installer \
-    | php -- --install-dir=/usr/bin --filename=composer
+# config and install php gd
+RUN docker-php-ext-configure gd \
+    --with-jpeg \
+    --with-freetype
+RUN docker-php-ext-install gd
+
+# install composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
