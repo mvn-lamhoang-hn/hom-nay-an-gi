@@ -11,8 +11,8 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
 |
 */
 
@@ -63,19 +63,9 @@ const FOODS = [
         'image_url' => 'https://thibanglai.edu.vn/quan-com-binh-dan-ngon-o-ha-noi/imager_22155.jpg',
     ],
     [
-        'name' => 'Dê',
-        'description' => 'Thịt dê là loại thịt thực phẩm từ loài dê nhà, đây là nguồn cung cấp thực phẩm quan trọng và phổ biến ở một số đất nước như Bangladesh, Nepal, Sri Lanka, Pakistan, Ấn Độ và một số vùng ở Việt Nam (với món đặc sản là Dê núi Ninh Bình), thịt dê được cho là một loại thực phẩm bổ dưỡng và có công dụng trong việc tăng cường khả năng sinh lý.',
-        'image_url' => 'https://static.hotdeal.vn/images/961/960602/500x500/239615-met-de-6-mon-danh-cho-4-6-nguoi-tai-lau-de-giang-son.jpg',
-    ],
-    [
         'name' => 'Bún cá',
         'description' => 'Bún cá là bún với cá.',
         'image_url' => 'https://cdn.tgdd.vn/Files/2020/04/03/1246339/cach-nau-bun-ca-ha-noi-thom-ngon-chuan-vi-khong-ta-14-760x367.jpg',
-    ],
-    [
-        'name' => 'Cơm thố',
-        'description' => "Cơm đặt grab",
-        'image_url' => 'https://ict-imgs.vgcloud.vn/2022/09/25/20/quan-com-tho-mo-rong-18-chi-nhanh-trong-2-nam-covid-nho-bat-tay-ung-dung-cong-nghe.png',
     ],
 ];
 
