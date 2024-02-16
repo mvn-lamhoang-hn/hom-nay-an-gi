@@ -97,7 +97,7 @@ Route::get('/', function () {
 })->name('index');
 
 Route::get('/list', function () {
-    return response()->json("\n", implode(array_column(FOODS, 'name')));
+    return implode("\n", array_column(FOODS, 'name'));
 });
 
 Route::get('/reroll/0000', function () {
