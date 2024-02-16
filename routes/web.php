@@ -18,11 +18,6 @@ use Illuminate\Support\Facades\Route;
 
 const FOODS = [
     [
-        'name' => 'Bún riêu',
-        'description' => 'Bún riêu cua là một món ăn truyền thống Việt Nam, có nguồn gốc từ vùng đồng bằng sông cửu long của Việt Nam, được biết đến rộng rãi trong nước và quốc tế. Món ăn này gồm bún (bún rối hoặc bún lá) và riêu cua. Riêu cua là canh chua được nấu từ gạch cua, thịt cua giã và lọc cùng với quả dọc, cà chua, mỡ nước, giấm bỗng, nước mắm, muối, hành hoa. Bún riêu thường thêm chút mắm tôm để tăng thêm vị đậm đà, thường ăn kèm với rau sống. Đây là món ăn có vị chua thanh, ăn vào mùa hè rất mát nên được người Việt rất ưa thích.',
-        'image_url' => 'https://bepmina.vn/wp-content/uploads/2021/12/cach-nau-bun-rieu-cua.jpeg',
-    ],
-    [
         'name' => 'Cơm nhất dương chỉ',
         'description' => "Cơm chọn món",
         'image_url' => 'https://thibanglai.edu.vn/quan-com-binh-dan-ngon-o-ha-noi/imager_22155.jpg',
@@ -58,9 +53,9 @@ const FOODS = [
         'image_url' => 'https://giadinh.mediacdn.vn/2018/8/14/photo-2-15342566083962113623589.jpg',
     ],
     [
-        'name' => 'Cơm lộc phát',
-        'description' => "Cơm chọn món",
-        'image_url' => 'https://thibanglai.edu.vn/quan-com-binh-dan-ngon-o-ha-noi/imager_22155.jpg',
+        'name' => 'Bún giả cầy',
+        'description' => "Giả cầy là một món ăn khá phổ biến của người Việt trên nhiều vùng miền của đất nước, được làm từ chân giò lợn với các nguyên liệu và gia vị tẩm ướp khiến món ăn cho hương vị gần tương tự thịt cầy. Do vậy món được gọi với tên 'giả cầy'.",
+        'image_url' => 'https://cdn.tgdd.vn/2021/07/CookProduct/thum-1-1200x675-1.jpg',
     ],
     [
         'name' => 'Bún cá',
@@ -82,10 +77,9 @@ Route::get('/', function () {
             $lastFoodCache2 = Cache::get($now->copy()->subDays(2)->toDateString());
             $lastFoodCache3 = Cache::get($now->copy()->subDays(3)->toDateString());
             $lastFoodCache4 = Cache::get($now->copy()->subDays(4)->toDateString());
-            $lastFoodCache5 = Cache::get($now->copy()->subDays(5)->toDateString());
             $foodCache = rand(1, count($foods));
-            if ($lastFoodCache1) {
-                while ($lastFoodCache1 == $foodCache || $lastFoodCache2 == $foodCache || $lastFoodCache3 == $foodCache || $lastFoodCache4 == $foodCache || $lastFoodCache5 == $foodCache) {
+            if ($lastFoodCache1 || $lastFoodCache4) {
+                while ($lastFoodCache1 == $foodCache || $lastFoodCache2 == $foodCache || $lastFoodCache3 == $foodCache || $lastFoodCache4 == $foodCache) {
                     $foodCache = rand(1, count($foods));
                 }
             }
@@ -103,7 +97,7 @@ Route::get('/', function () {
 })->name('index');
 
 Route::get('/list', function () {
-    return response()->json(array_column(FOODS, 'name'));
+    return response()->json("\n", implode(array_column(FOODS, 'name')));
 });
 
 Route::get('/reroll/0000', function () {
