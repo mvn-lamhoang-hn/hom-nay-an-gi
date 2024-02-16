@@ -97,7 +97,7 @@ Route::get('/', function () {
 })->name('index');
 
 Route::get('/list', function () {
-    return implode("\n", array_column(FOODS, 'name'));
+    return "<pre>".implode("\n", array_column(FOODS, 'name'))."</pre>";
 });
 
 Route::get('/reroll/0000', function () {
