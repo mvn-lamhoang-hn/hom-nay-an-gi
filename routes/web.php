@@ -78,7 +78,7 @@ Route::get('/', function () {
             $lastFoodCache3 = Cache::get($now->copy()->subDays(3)->toDateString());
             $lastFoodCache4 = Cache::get($now->copy()->subDays(4)->toDateString());
             $foodCache = rand(1, count($foods));
-            if ($lastFoodCache1 || $lastFoodCache4) {
+            if ($lastFoodCache1 || $lastFoodCache2 || $lastFoodCache3 || $lastFoodCache4) {
                 while ($lastFoodCache1 == $foodCache || $lastFoodCache2 == $foodCache || $lastFoodCache3 == $foodCache || $lastFoodCache4 == $foodCache) {
                     $foodCache = rand(1, count($foods));
                 }
