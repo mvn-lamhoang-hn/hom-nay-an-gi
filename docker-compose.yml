@@ -21,3 +21,15 @@ services:
       - ./docker/nginx_conf:/etc/nginx/conf.d/
     ports:
       - "9090:80"
+
+  db:
+    platform: linux/x86_64
+    image: mysql:8.0
+    container_name: hom-nay-an-gi-webserver-mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: cook
+      MYSQL_USER: cook
+      MYSQL_PASSWORD: cook
+    ports:
+      - 33061:3306
