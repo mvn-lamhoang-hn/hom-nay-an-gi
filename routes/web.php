@@ -27,7 +27,7 @@ Route::get('/', function () {
     } else {
         $foodToday = FoodHistory::whereDate('created_at', '>=', $now->copy()->startOfDay())->first();
         if (!$foodToday){
-            $oldFoods = FoodHistory::whereDate('created_at', '<', $now->copy()->startOfDay())->limit(4)->get();
+            $oldFoods = FoodHistory::orderBy('created_at', 'desc')->whereDate('created_at', '<', $now->copy()->startOfDay())->limit(4)->get();
             if ($oldFoods->isNotEmpty()) {
                 $food = $foods->whereNotIn('id', $oldFoods->pluck('food_id'))->random();
             } else {
