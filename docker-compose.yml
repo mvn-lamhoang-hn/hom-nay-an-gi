@@ -7,6 +7,7 @@ services:
     container_name: hom-nay-an-gi
     volumes:
       - ./:/var/www/html
+      - ./php.ini:/usr/local/etc/php/php.ini
 
   webserver:
     image: nginx:1.17.10
