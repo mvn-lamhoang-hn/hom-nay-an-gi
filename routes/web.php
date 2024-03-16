@@ -77,3 +77,9 @@ Route::get('/history', function (Request $request) {
 Route::get('/phpinfo', function () {
     dd(phpinfo());
 });
+
+Route::get('/health-check', function () {
+    $todayFood = Food::first(['id', 'name', 'description', 'image_url',]);
+    $webUrl = url()->current();
+    return view('welcome')->with(compact('todayFood', 'webUrl'));
+});
