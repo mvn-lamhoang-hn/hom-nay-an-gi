@@ -73,3 +73,7 @@ Route::get('/history', function (Request $request) {
     }
     return "<pre>".implode("\n", $list)."</pre>";
 });
+
+Route::get('/phpinfo', function () {
+    dd(phpinfo());
+});
