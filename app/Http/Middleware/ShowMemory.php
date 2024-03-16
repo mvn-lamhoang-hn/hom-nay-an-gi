@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Symfony\Component\HttpFoundation\Response;
 
-class FreeMemory
+class ShowMemory
 {
     /**
      * Handle an incoming request.
@@ -16,9 +16,14 @@ class FreeMemory
      */
     public function handle(Request $request, Closure $next): Response
     {
-        ini_set('memory_limit', '80M');
-        $response = $next($request);
-        Artisan::call('optimize:clear');
-        return $response;
+        if (isset($request->memory) && $request->memory == "show"){
+            dump("1: ".(memory_get_peak_usage(false)/1024/1024)." MiB");
+            $response = $next($request);
+            dump("2: ".(memory_get_peak_usage(false)/1024/1024)." MiB");
+            return $response;
+        }
+        else {
+            return $next($request);
+        }
     }
 }

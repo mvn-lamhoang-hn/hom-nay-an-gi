@@ -19,15 +19,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $foods = Food::get();
+    $foods = Food::get(['id', 'name', 'description', 'image_url',]);
     $now = now();
     $triggerTime = Carbon::create($now->year, $now->month, $now->day, 10, 29, 0);
     if ($now->lt($triggerTime) || $now->dayOfWeek == Carbon::SATURDAY || $now->dayOfWeek == Carbon::SUNDAY) {
         $food = null;
     } else {
-        $foodToday = FoodHistory::whereDate('created_at', '>=', $now->copy()->startOfDay())->first();
+        $foodToday = FoodHistory::select('food_id', 'created_at')->whereDate('created_at', '>=', $now->copy()->startOfDay())->first();
         if (!$foodToday){
-            $oldFoods = FoodHistory::orderBy('created_at', 'desc')->whereDate('created_at', '<', $now->copy()->startOfDay())->limit(4)->get();
+            $oldFoods = FoodHistory::select('food_id', 'created_at')->orderBy('created_at', 'desc')->whereDate('created_at', '<', $now->copy()->startOfDay())->limit(4)->get();
             if ($oldFoods->isNotEmpty()) {
                 $food = $foods->whereNotIn('id', $oldFoods->pluck('food_id'))->random();
             } else {
@@ -48,11 +48,11 @@ Route::get('/', function () {
 })->name('index');
 
 Route::get('/list', function () {
-    return "<pre>".implode("\n", Food::get()->pluck('name')->toArray())."</pre>";
+    return "<pre>".implode("\n", Food::get(['name'])->pluck('name')->toArray())."</pre>";
 });
 
 Route::get('/reroll/0000', function () {
-    $foodToday = FoodHistory::whereDate('created_at', '>=', now()->startOfDay())->first();
+    $foodToday = FoodHistory::select('id', 'created_at')->whereDate('created_at', '>=', now()->startOfDay())->first();
     if ($foodToday){
         $foodToday->delete();
     }
@@ -61,9 +61,9 @@ Route::get('/reroll/0000', function () {
 
 Route::get('/history', function (Request $request) {
     if (isset($request->limit) && $request->limit == "false"){
-        $oldFoods = FoodHistory::orderBy('created_at', 'desc')->get();
+        $oldFoods = FoodHistory::select('food_name', 'created_at')->orderBy('created_at', 'desc')->get();
     } else {
-        $oldFoods = FoodHistory::orderBy('created_at', 'desc')->limit(5)->get();
+        $oldFoods = FoodHistory::select('food_name', 'created_at')->orderBy('created_at', 'desc')->limit(5)->get();
     }
     $oldFoods = $oldFoods->sortBy('created_at');
     $list = [];
